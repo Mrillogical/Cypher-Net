@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body,
+  #__next {
+    height: 100%;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1a1b1e;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #111214;
+  }
+}
+
+@layer components {
+  .sidebar-item {
+    @apply flex items-center gap-2 px-2 py-1.5 rounded cursor-pointer text-discord-text-muted
+      hover:bg-discord-bg-hover hover:text-discord-text-secondary transition-colors duration-100 select-none;
+  }
+
+  .sidebar-item.active {
+    @apply bg-discord-bg-hover text-discord-text-primary;
+  }
+
+  .channel-item {
+    @apply flex items-center gap-1.5 px-2 py-1 rounded cursor-pointer text-discord-text-muted text-sm
+      hover:bg-discord-bg-hover hover:text-discord-text-secondary transition-colors duration-100;
+  }
+
+  .channel-item.active {
+    @apply bg-discord-bg-hover text-discord-text-primary;
+  }
+
+  .btn-primary {
+    @apply bg-discord-blurple hover:bg-discord-blurple-dark text-white font-medium
+      py-2 px-4 rounded transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply bg-discord-red hover:bg-red-700 text-white font-medium
+      py-2 px-4 rounded transition-colors duration-150;
+  }
+
+  .btn-ghost {
+    @apply text-discord-text-secondary hover:text-discord-text-primary hover:bg-discord-bg-hover
+      font-medium py-2 px-4 rounded transition-colors duration-150;
+  }
+
+  .input-field {
+    @apply w-full bg-discord-input-bg text-discord-text-primary placeholder-discord-text-muted
+      border border-discord-separator rounded px-3 py-2 text-sm
+      focus:outline-none focus:border-discord-blurple transition-colors duration-150;
+  }
+
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/70 flex items-center justify-center z-50 animate-fade-in;
+  }
+
+  .modal-card {
+    @apply bg-discord-bg-secondary rounded-lg shadow-2xl w-full max-w-md mx-4 animate-slide-up;
+  }
+}
